@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h1{
+            text-align: center;
+            color: #333;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
+        input,
+        select{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        .gender-box{
+            margin-bottom: 15px;
+        }
+
+        .gender-box input{
+            width: auto;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #45a049;
+        }
+
+        .result{
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Registration Form</h1>
+
+        <form action="/submit" method="POST">
+
+            <label>Full Name</label>
+            <input type="text"
+                   name="fullname"
+                   placeholder="Enter your full name"
+                   required>
+
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Phone Number</label>
+            <input type="tel"
+                   name="phone"
+                   placeholder="Enter phone number"
+                   required>
+
+            <label>Select Course</label>
+
+            <select name="course" required>
+                <option value="">Choose Course</option>
+                <option>BCA</option>
+                <option>B.Com</option>
+                <option>B.Tech</option>
+                <option>MCA</option>
+            </select>
+
+            <div class="gender-box">
+
+                <label>Gender</label>
+                <br><br>
+
+                <input type="radio"
+                       name="gender"
+                       value="Male"
+                       required> Male
+
+                <input type="radio"
+                       name="gender"
+                       value="Female"> Female
+
+            </div>
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <% if(student){ %>
+
+            <div class="result">
+
+                <h2>Registration Successful 🎉</h2>
+
+                <p>
+                    <strong>Name:</strong>
+                    <%= student.fullname %>
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <%= student.email %>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <%= student.phone %>
+                </p>
+
+                <p>
+                    <strong>Course:</strong>
+                    <%= student.course %>
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    <%= student.gender %>
+                </p>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+</html>
